@@ -1,0 +1,6 @@
+framework module Pods_iMessage_gifs {
+  umbrella header "Pods-iMessage-gifs-umbrella.h"
+
+  export *
+  module * { export * }
+}

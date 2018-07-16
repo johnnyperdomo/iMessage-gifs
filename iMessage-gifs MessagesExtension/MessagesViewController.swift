@@ -8,6 +8,11 @@
 
 import UIKit
 import Messages
+import Alamofire
+import SDWebImage
+import SwiftyJSON
+
+
 
 class MessagesViewController: MSMessagesAppViewController {
     
@@ -69,4 +74,5 @@ class MessagesViewController: MSMessagesAppViewController {
         // Use this method to finalize any behaviors associated with the change in presentation style.
     }
 
+    
 }

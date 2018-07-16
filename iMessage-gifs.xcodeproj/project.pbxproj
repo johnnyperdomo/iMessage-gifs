@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61DD8CF8DBB0F07CD75BA9C5 /* Pods_iMessage_gifs_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22C7FF94839EC75C6C2B474 /* Pods_iMessage_gifs_MessagesExtension.framework */; };
+		8D6A6BE93167DE4659A1684F /* Pods_iMessage_gifs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23216A5E015CA21BE62461A2 /* Pods_iMessage_gifs.framework */; };
 		FE51E7B120FD2F2F006CD12E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE51E7B020FD2F2F006CD12E /* Assets.xcassets */; };
 		FE51E7B820FD2F30006CD12E /* iMessage-gifs MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FE51E7B720FD2F30006CD12E /* iMessage-gifs MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FE51E7BD20FD2F30006CD12E /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE51E7BC20FD2F30006CD12E /* Messages.framework */; };
@@ -40,6 +42,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		23216A5E015CA21BE62461A2 /* Pods_iMessage_gifs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMessage_gifs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EF7440EFA21AF5D321E28C8 /* Pods-iMessage-gifs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMessage-gifs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMessage-gifs/Pods-iMessage-gifs.debug.xcconfig"; sourceTree = "<group>"; };
+		6E6F6FB852E2E10F626EEED5 /* Pods-iMessage-gifs MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMessage-gifs MessagesExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMessage-gifs MessagesExtension/Pods-iMessage-gifs MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		C63DFF5FC9BBEE2A464636B5 /* Pods-iMessage-gifs MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMessage-gifs MessagesExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMessage-gifs MessagesExtension/Pods-iMessage-gifs MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
+		D22C7FF94839EC75C6C2B474 /* Pods_iMessage_gifs_MessagesExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMessage_gifs_MessagesExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9FE58254AAD09F6BB3763E2 /* Pods-iMessage-gifs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMessage-gifs.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMessage-gifs/Pods-iMessage-gifs.release.xcconfig"; sourceTree = "<group>"; };
 		FE51E7AD20FD2F2D006CD12E /* iMessage-gifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iMessage-gifs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE51E7B020FD2F2F006CD12E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE51E7B220FD2F30006CD12E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,12 +65,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE51E7BD20FD2F30006CD12E /* Messages.framework in Frameworks */,
+				61DD8CF8DBB0F07CD75BA9C5 /* Pods_iMessage_gifs_MessagesExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFA85B666A780A2936D867E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D6A6BE93167DE4659A1684F /* Pods_iMessage_gifs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95DC1AA982BAEB775C503D82 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5EF7440EFA21AF5D321E28C8 /* Pods-iMessage-gifs.debug.xcconfig */,
+				D9FE58254AAD09F6BB3763E2 /* Pods-iMessage-gifs.release.xcconfig */,
+				6E6F6FB852E2E10F626EEED5 /* Pods-iMessage-gifs MessagesExtension.debug.xcconfig */,
+				C63DFF5FC9BBEE2A464636B5 /* Pods-iMessage-gifs MessagesExtension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FE51E7A620FD2F2D006CD12E = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +98,7 @@
 				FE51E7BE20FD2F30006CD12E /* iMessage-gifs MessagesExtension */,
 				FE51E7BB20FD2F30006CD12E /* Frameworks */,
 				FE51E7AE20FD2F2D006CD12E /* Products */,
+				95DC1AA982BAEB775C503D82 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				FE51E7BC20FD2F30006CD12E /* Messages.framework */,
+				23216A5E015CA21BE62461A2 /* Pods_iMessage_gifs.framework */,
+				D22C7FF94839EC75C6C2B474 /* Pods_iMessage_gifs_MessagesExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,8 +148,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE51E7CD20FD2F30006CD12E /* Build configuration list for PBXNativeTarget "iMessage-gifs" */;
 			buildPhases = (
+				8C7636239B0268387C127BE1 /* [CP] Check Pods Manifest.lock */,
 				FE51E7AB20FD2F2D006CD12E /* Resources */,
 				FE51E7CC20FD2F30006CD12E /* Embed App Extensions */,
+				FFA85B666A780A2936D867E9 /* Frameworks */,
+				D91EB16BC627058DBDD8378A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,6 +168,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE51E7C920FD2F30006CD12E /* Build configuration list for PBXNativeTarget "iMessage-gifs MessagesExtension" */;
 			buildPhases = (
+				2883C7A6DE0A3D9772D354D2 /* [CP] Check Pods Manifest.lock */,
 				FE51E7B320FD2F30006CD12E /* Sources */,
 				FE51E7B420FD2F30006CD12E /* Frameworks */,
 				FE51E7B520FD2F30006CD12E /* Resources */,
@@ -203,6 +238,67 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2883C7A6DE0A3D9772D354D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iMessage-gifs MessagesExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C7636239B0268387C127BE1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iMessage-gifs-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D91EB16BC627058DBDD8378A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iMessage-gifs/Pods-iMessage-gifs-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iMessage-gifs/Pods-iMessage-gifs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FE51E7B320FD2F30006CD12E /* Sources */ = {
@@ -351,16 +447,13 @@
 		};
 		FE51E7CA20FD2F30006CD12E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E6F6FB852E2E10F626EEED5 /* Pods-iMessage-gifs MessagesExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JX3EAWJE5N;
 				INFOPLIST_FILE = "iMessage-gifs MessagesExtension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyperdomo.iMessage-gifs.MessagesExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -371,16 +464,13 @@
 		};
 		FE51E7CB20FD2F30006CD12E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C63DFF5FC9BBEE2A464636B5 /* Pods-iMessage-gifs MessagesExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JX3EAWJE5N;
 				INFOPLIST_FILE = "iMessage-gifs MessagesExtension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyperdomo.iMessage-gifs.MessagesExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -391,6 +481,7 @@
 		};
 		FE51E7CE20FD2F30006CD12E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EF7440EFA21AF5D321E28C8 /* Pods-iMessage-gifs.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -408,6 +499,7 @@
 		};
 		FE51E7CF20FD2F30006CD12E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9FE58254AAD09F6BB3763E2 /* Pods-iMessage-gifs.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
