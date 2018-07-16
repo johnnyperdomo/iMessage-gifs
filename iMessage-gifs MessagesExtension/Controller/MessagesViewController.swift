@@ -17,14 +17,29 @@ import SwiftyJSON
 class MessagesViewController: MSMessagesAppViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var gifCollectionView: UICollectionView!
+    
+    var gifImageUrls = [String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         gifCollectionView.delegate = self
         gifCollectionView.dataSource = self
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        getTrendingGifs { (success) in
+            if success {
+                print("gif success: \(self.gifImageUrls.count) images parsed")
+                
+            }
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,7 +107,7 @@ extension MessagesViewController: UICollectionViewDelegate, UICollectionViewData
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 25
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -117,7 +132,26 @@ extension MessagesViewController: UICollectionViewDelegateFlowLayout {
 
 }
 
-
+extension MessagesViewController {
+    
+    func getTrendingGifs(complete: @escaping (_ status: Bool) -> ()) {
+        
+        Alamofire.request("https://api.giphy.com/v1/gifs/trending?api_key=IXGWPBvtve6E1k4gqR0X50AUKs9TI89E&limit=25&rating=G", method: .get).responseJSON { (response) in
+            
+            guard let value = response.result.value else { return }
+            
+            let json = JSON(value)
+            
+            for item in json["data"].arrayValue {
+                
+                let imagesArray = item["images"]["fixed_height_small"]["url"].stringValue
+                self.gifImageUrls.append(imagesArray)
+            }
+            
+            complete(true)
+        }
+    }
+}
 
 
 
