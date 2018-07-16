@@ -17,5 +17,4 @@ target 'iMessage-gifs MessagesExtension' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 4.6'
   pod 'SDWebImage', '~> 4.0'
-
 end

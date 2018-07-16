@@ -13,7 +13,6 @@ import SDWebImage
 import SwiftyJSON
 
 
-
 class MessagesViewController: MSMessagesAppViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -37,6 +36,7 @@ class MessagesViewController: MSMessagesAppViewController {
             if success {
                 print("gif success: \(self.gifImageUrls.count) images parsed")
                 
+                self.gifCollectionView.reloadData()
             }
             
         }
@@ -112,6 +112,20 @@ extension MessagesViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = gifCollectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as? CollectionViewCell else { return UICollectionViewCell()}
+        
+        if gifImageUrls.count > 0 {
+            cell.gifImage.sd_setImage(with: URL(string: gifImageUrls[indexPath.row])) { (image, error, cache, urls) in
+                
+                if error != nil {
+                    cell.gifImage.image = UIImage(named: "loading")
+                } else {
+                    cell.gifImage.image = image
+                }
+            }
+            
+            
+           // cell.gifImage.image.gif
+        }
         
         
         return cell
