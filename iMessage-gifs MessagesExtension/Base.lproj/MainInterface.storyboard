@@ -35,7 +35,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="267" height="238"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="astro" translatesAutoresizingMaskIntoConstraints="NO" id="V3H-sL-TLy">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V3H-sL-TLy">
                                                     <rect key="frame" x="0.0" y="0.0" width="267" height="238"/>
                                                 </imageView>
                                             </subviews>
@@ -83,7 +83,4 @@
             <point key="canvasLocation" x="116" y="117.48768472906404"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="astro" width="512" height="512"/>
-    </resources>
 </document>
