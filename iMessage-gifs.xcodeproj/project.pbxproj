@@ -15,6 +15,7 @@
 		FE51E7C020FD2F30006CD12E /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE51E7BF20FD2F30006CD12E /* MessagesViewController.swift */; };
 		FE51E7C320FD2F30006CD12E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE51E7C120FD2F30006CD12E /* MainInterface.storyboard */; };
 		FE51E7C520FD2F30006CD12E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE51E7C420FD2F30006CD12E /* Assets.xcassets */; };
+		FE51E7D420FD3B4E006CD12E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE51E7D320FD3B4E006CD12E /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		FE51E7C220FD2F30006CD12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		FE51E7C420FD2F30006CD12E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE51E7C620FD2F30006CD12E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE51E7D320FD3B4E006CD12E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,12 +135,29 @@
 		FE51E7BE20FD2F30006CD12E /* iMessage-gifs MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
-				FE51E7BF20FD2F30006CD12E /* MessagesViewController.swift */,
+				FE51E7D120FD3AF1006CD12E /* Views */,
+				FE51E7D220FD3AF9006CD12E /* Controller */,
 				FE51E7C120FD2F30006CD12E /* MainInterface.storyboard */,
 				FE51E7C420FD2F30006CD12E /* Assets.xcassets */,
 				FE51E7C620FD2F30006CD12E /* Info.plist */,
 			);
 			path = "iMessage-gifs MessagesExtension";
+			sourceTree = "<group>";
+		};
+		FE51E7D120FD3AF1006CD12E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FE51E7D320FD3B4E006CD12E /* CollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FE51E7D220FD3AF9006CD12E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FE51E7BF20FD2F30006CD12E /* MessagesViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE51E7D420FD3B4E006CD12E /* CollectionViewCell.swift in Sources */,
 				FE51E7C020FD2F30006CD12E /* MessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,7 +473,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JX3EAWJE5N;
 				INFOPLIST_FILE = "iMessage-gifs MessagesExtension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyperdomo.iMessage-gifs.MessagesExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -470,7 +494,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JX3EAWJE5N;
 				INFOPLIST_FILE = "iMessage-gifs MessagesExtension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnnyperdomo.iMessage-gifs.MessagesExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

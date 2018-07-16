@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,29 +13,77 @@
         <!--Messages View Controller-->
         <scene sceneID="7MM-of-jgj">
             <objects>
-                <viewController id="ObA-dk-sSI" customClass="MessagesViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ObA-dk-sSI" customClass="MessagesViewController" customModule="iMessage_gifs_MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-fi-ked">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CW0-Kt-m1W">
+                                <rect key="frame" x="0.0" y="100" width="375" height="678"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="1cS-Jg-atM">
+                                    <size key="itemSize" width="267" height="238"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="J1l-20-Ia3" customClass="CollectionViewCell" customModule="iMessage_gifs_MessagesExtension" customModuleProvider="target">
+                                        <rect key="frame" x="54" y="5" width="267" height="238"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="267" height="238"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="astro" translatesAutoresizingMaskIntoConstraints="NO" id="V3H-sL-TLy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="267" height="238"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="V3H-sL-TLy" firstAttribute="top" secondItem="J1l-20-Ia3" secondAttribute="top" id="2Nw-4y-x12"/>
+                                            <constraint firstItem="V3H-sL-TLy" firstAttribute="leading" secondItem="J1l-20-Ia3" secondAttribute="leading" id="efH-Kf-i9t"/>
+                                            <constraint firstAttribute="bottom" secondItem="V3H-sL-TLy" secondAttribute="bottom" id="heg-1T-6n7"/>
+                                            <constraint firstAttribute="trailing" secondItem="V3H-sL-TLy" secondAttribute="trailing" id="pUK-hy-xlW"/>
+                                        </constraints>
+                                        <size key="customSize" width="267" height="238"/>
+                                        <connections>
+                                            <outlet property="gifImage" destination="V3H-sL-TLy" id="9D8-mj-1sz"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Gifs by Johnny" translatesAutoresizingMaskIntoConstraints="NO" id="YDk-bp-QF3">
+                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="d1e-fi-ked" secondAttribute="centerY" id="H0s-hz-dDP"/>
-                            <constraint firstAttribute="centerX" secondItem="d1e-fi-ked" secondAttribute="centerX" id="wFy-hW-Bib"/>
+                            <constraint firstItem="CW0-Kt-m1W" firstAttribute="top" secondItem="YDk-bp-QF3" secondAttribute="bottom" id="0S5-bs-RRp"/>
+                            <constraint firstItem="LDy-ih-0nr" firstAttribute="trailing" secondItem="CW0-Kt-m1W" secondAttribute="trailing" id="2xA-uX-aYB"/>
+                            <constraint firstItem="YDk-bp-QF3" firstAttribute="top" secondItem="LDy-ih-0nr" secondAttribute="top" id="5jP-1a-089"/>
+                            <constraint firstItem="CW0-Kt-m1W" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" id="5ti-R6-1kA"/>
+                            <constraint firstItem="CW0-Kt-m1W" firstAttribute="top" secondItem="YDk-bp-QF3" secondAttribute="bottom" id="e33-WV-FEM"/>
+                            <constraint firstItem="LDy-ih-0nr" firstAttribute="bottom" secondItem="CW0-Kt-m1W" secondAttribute="bottom" id="k31-UO-CDi"/>
+                            <constraint firstItem="YDk-bp-QF3" firstAttribute="trailing" secondItem="LDy-ih-0nr" secondAttribute="trailing" id="mes-yn-TNC"/>
+                            <constraint firstItem="YDk-bp-QF3" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" id="waL-kY-kbW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LDy-ih-0nr"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="528"/>
+                    <connections>
+                        <outlet property="gifCollectionView" destination="CW0-Kt-m1W" id="uLS-GS-j7r"/>
+                        <outlet property="searchBar" destination="YDk-bp-QF3" id="7Nx-fW-ld5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="116" y="117.48768472906404"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="astro" width="512" height="512"/>
+    </resources>
 </document>

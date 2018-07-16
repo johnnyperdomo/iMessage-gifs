@@ -16,9 +16,15 @@ import SwiftyJSON
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var gifCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        gifCollectionView.delegate = self
+        gifCollectionView.dataSource = self
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,3 +82,43 @@ class MessagesViewController: MSMessagesAppViewController {
 
     
 }
+
+extension MessagesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+       return 1
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = gifCollectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as? CollectionViewCell else { return UICollectionViewCell()}
+        
+        
+        return cell
+
+    }
+}
+
+
+extension MessagesViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = gifCollectionView.frame.size.width
+        
+        return CGSize(width: width * 0.31, height: 100)
+        
+    }
+
+}
+
+
+
+
+
+
