@@ -24,16 +24,7 @@ class MessagesViewController: MSMessagesAppViewController {
         super.viewDidLoad()
         gifCollectionView.delegate = self
         gifCollectionView.dataSource = self
-        
-        searchGifs(query: "drake") { (success) in
-            if success {
-                print("search success")
-            }
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        searchBar.delegate = self
         
         getTrendingGifs { (success) in
             if success {
@@ -41,10 +32,19 @@ class MessagesViewController: MSMessagesAppViewController {
                 print("gif success: \(self.gifImageUrls.count) images parsed")
                 
                 self.gifCollectionView.reloadData()
-
+                
             }
             
         }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -118,6 +118,7 @@ extension MessagesViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = gifCollectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as? CollectionViewCell else { return UICollectionViewCell()}
 
+        
         if  gifImageUrls.count > 0 {
             print("\(gifImageUrls.count) gifs downloaded")
             cell.gifImage.image = UIImage.gif(url: gifImageUrls[indexPath.row])
@@ -158,6 +159,7 @@ extension MessagesViewController {
             for item in json["data"].arrayValue {
                 
                 let imagesArray = item["images"]["fixed_height_small"]["url"].stringValue
+                
                 self.gifImageUrls.append(imagesArray)
             }
             
@@ -169,6 +171,8 @@ extension MessagesViewController {
         
         Alamofire.request("https://api.giphy.com/v1/gifs/search?api_key=IXGWPBvtve6E1k4gqR0X50AUKs9TI89E&q=\(query)&limit=25&offset=0&rating=G&lang=en", method: .get).responseJSON { (response) in
             
+            self.gifImageUrls.removeAll()
+            
             guard let value = response.result.value else { return }
             
             let json = JSON(value)
@@ -176,7 +180,9 @@ extension MessagesViewController {
             for item in json["data"].arrayValue {
                 
                 let imagesArray = item["images"]["fixed_height_small"]["url"].stringValue
-                print(imagesArray)
+                
+                    self.gifImageUrls.append(imagesArray)
+                
             }
             complete(true)
         }
@@ -184,9 +190,22 @@ extension MessagesViewController {
         
     }
     
-    
 }
 
-
+extension MessagesViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        searchGifs(query: searchBar.text!) { (success) in
+            if success {
+                print("search button clicked")
+                self.gifCollectionView.reloadData()
+            }
+            
+        }
+        
+    }
+    
+}
 
 
