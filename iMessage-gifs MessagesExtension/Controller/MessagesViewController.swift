@@ -12,7 +12,6 @@ import Alamofire
 import SwiftyJSON
 import SwiftGifOrigin
 
-
 class MessagesViewController: MSMessagesAppViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -38,7 +37,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 print("gif success: \(self.gifImageUrls.count) images parsed")
                 
                 self.gifCollectionView.reloadData()
-                
+
             }
             
         }
@@ -114,13 +113,13 @@ extension MessagesViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = gifCollectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as? CollectionViewCell else { return UICollectionViewCell()}
-        
 
         if  gifImageUrls.count > 0 {
             print("\(gifImageUrls.count) gifs downloaded")
             cell.gifImage.image = UIImage.gif(url: gifImageUrls[indexPath.row])
         } else {
             print("loading")
+
         }
         
         
