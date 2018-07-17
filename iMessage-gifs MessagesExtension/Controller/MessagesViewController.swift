@@ -25,7 +25,11 @@ class MessagesViewController: MSMessagesAppViewController {
         gifCollectionView.delegate = self
         gifCollectionView.dataSource = self
         
-        
+        searchGifs(query: "drake") { (success) in
+            if success {
+                print("search success")
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -159,6 +163,25 @@ extension MessagesViewController {
             
             complete(true)
         }
+    }
+    
+    func searchGifs(query: String, complete: @escaping (_ status: Bool) -> ()) {
+        
+        Alamofire.request("https://api.giphy.com/v1/gifs/search?api_key=IXGWPBvtve6E1k4gqR0X50AUKs9TI89E&q=\(query)&limit=25&offset=0&rating=G&lang=en", method: .get).responseJSON { (response) in
+            
+            guard let value = response.result.value else { return }
+            
+            let json = JSON(value)
+            
+            for item in json["data"].arrayValue {
+                
+                let imagesArray = item["images"]["fixed_height_small"]["url"].stringValue
+                print(imagesArray)
+            }
+            complete(true)
+        }
+            
+        
     }
     
     
