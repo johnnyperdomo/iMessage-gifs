@@ -135,7 +135,7 @@ extension MessagesViewController: UICollectionViewDelegateFlowLayout {
 
         let width = gifCollectionView.frame.size.width
         
-        return CGSize(width: width * 0.31, height: 100)
+        return CGSize(width: width * 0.32, height: width * 0.32)
         
     }
 
