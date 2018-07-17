@@ -9,8 +9,8 @@
 import UIKit
 import Messages
 import Alamofire
-import SDWebImage
 import SwiftyJSON
+import SwiftGifOrigin
 
 
 class MessagesViewController: MSMessagesAppViewController {
@@ -34,9 +34,11 @@ class MessagesViewController: MSMessagesAppViewController {
         
         getTrendingGifs { (success) in
             if success {
+                
                 print("gif success: \(self.gifImageUrls.count) images parsed")
                 
                 self.gifCollectionView.reloadData()
+                
             }
             
         }
@@ -113,18 +115,12 @@ extension MessagesViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = gifCollectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as? CollectionViewCell else { return UICollectionViewCell()}
         
-        if gifImageUrls.count > 0 {
-            cell.gifImage.sd_setImage(with: URL(string: gifImageUrls[indexPath.row])) { (image, error, cache, urls) in
-                
-                if error != nil {
-                    cell.gifImage.image = UIImage(named: "loading")
-                } else {
-                    cell.gifImage.image = image
-                }
-            }
-            
-            
-           // cell.gifImage.image.gif
+
+        if  gifImageUrls.count > 0 {
+            print("\(gifImageUrls.count) gifs downloaded")
+            cell.gifImage.image = UIImage.gif(url: gifImageUrls[indexPath.row])
+        } else {
+            print("loading")
         }
         
         
@@ -165,6 +161,8 @@ extension MessagesViewController {
             complete(true)
         }
     }
+    
+    
 }
 
 
