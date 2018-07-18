@@ -89,6 +89,7 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        
         // Called before the extension transitions to a new presentation style.
     
         // Use this method to prepare for the change in presentation style.
@@ -96,7 +97,10 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
         
-        self.searchBar.becomeFirstResponder()
+        if self.presentationStyle == MSMessagesAppPresentationStyle.expanded {
+            self.searchBar.becomeFirstResponder()
+        }
+        
         // Called after the extension transitions to a new presentation style.
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
@@ -133,6 +137,37 @@ extension MessagesViewController: UICollectionViewDelegate, UICollectionViewData
         return cell
 
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("selected item")
+        
+         if self.presentationStyle == MSMessagesAppPresentationStyle.expanded {
+            self.requestPresentationStyle(MSMessagesAppPresentationStyle.compact)
+            print("make view compact")
+            
+            let layout = MSMessageTemplateLayout()
+            layout.image = UIImage.gif(url: gifImageUrls[indexPath.row])
+            layout.caption = "Gif by Johnny"
+            layout.subcaption = "Powered by Giphy"
+            
+            let message = MSMessage()
+            message.layout = layout
+            
+            activeConversation?.insert(message, completionHandler: nil)
+         } else {
+            let layout = MSMessageTemplateLayout()
+            layout.image = UIImage.gif(url: gifImageUrls[indexPath.row])
+            layout.caption = "Gif by Johnny"
+            layout.subcaption = "Powered by Giphy"
+            
+            let message = MSMessage()
+            message.layout = layout
+            activeConversation?.insert(message, completionHandler: nil)
+        }
+        
+    }
+    
 }
 
 
