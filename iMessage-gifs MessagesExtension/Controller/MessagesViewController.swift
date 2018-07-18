@@ -95,6 +95,8 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        
+        self.searchBar.becomeFirstResponder()
         // Called after the extension transitions to a new presentation style.
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
@@ -194,7 +196,38 @@ extension MessagesViewController {
 
 extension MessagesViewController: UISearchBarDelegate {
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        if self.presentationStyle == MSMessagesAppPresentationStyle.compact {
+            self.requestPresentationStyle(MSMessagesAppPresentationStyle.expanded)
+        }
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if self.searchBar.text == "" {
+            self.searchBar.showsCancelButton = false
+        } else {
+            self.searchBar.showsCancelButton = true
+        }
+    }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        
+        if !(self.searchBar.text?.isEmpty)! {
+            self.searchBar.resignFirstResponder()
+            self.searchBar.text = ""
+            self.searchBar.showsCancelButton = false
+        }
+        
+        
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.searchBar.resignFirstResponder() //to hide keyboard
         
         searchGifs(query: searchBar.text!) { (success) in
             if success {
