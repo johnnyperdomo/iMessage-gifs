@@ -39,7 +39,7 @@ import SwiftGifOrigin
 ```swift
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 4.6'
-  pod 'SwiftGifOrigin', '~> 1.6.1'
+  pod 'SwiftGifOrigin'
 ```
 [SwiftGif](https://github.com/swiftgif/SwiftGif)   
 [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)  
